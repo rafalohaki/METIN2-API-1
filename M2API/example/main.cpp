@@ -38,16 +38,14 @@ int main()
 
 		// USER_COUNT
 		{
-			std::unique_ptr<CBuffer> buffer(p.SendAndGet(32, PACKET_SERVER::HEADER_CG_TEXT, "USER_COUNT"));
-
-			if (buffer) {
-				std::string resText = buffer->Decode<std::string>();
-
-				printf("USER_COUNT Result: %s\n", resText.c_str());
-			}
-			else {
-				printf("[USER_COUNT]Cannot get data.\n");
-			}
+		    std::unique_ptr<CBuffer> buffer(p.SendAndGet(32, PACKET_SERVER::HEADER_CG_TEXT, "USER_COUNT"));
+		
+		    if (buffer) {
+		        std::string resText = buffer->Decode<std::string>();
+		        printf("USER_COUNT Result: %s\n", resText.c_str());
+		    } else {
+		        printf("[USER_COUNT] Cannot get data.\n");
+		    }
 		}
 
 		// IS_SERVER_UP
